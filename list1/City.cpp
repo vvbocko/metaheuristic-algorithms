@@ -6,9 +6,10 @@
 #include <algorithm>
 #include <random>
 #include <ctime>
+#include <limits>
 
-std::random_device randomDev;
-std::mt19937 gen(randomDev());
+std::mt19937 gen(time(nullptr));
+int hugeNumber = std::numeric_limits<int>::max();
 
 struct City //jkao wierzcholek
 {
@@ -79,30 +80,47 @@ int main()
 {
     std::string filename = "dj38.tsp"; 
     std::vector<City> cities = loadCitiesFile(filename);
-    int dimension = cities.size();
-    int sum = 0;
-    float average = 0.0f;
+
+    int min_10 = hugeNumber;
+    int min_50 = hugeNumber;
+    int min = hugeNumber;
+ 
+    int sum_10 = 0;
+    int sum_50 = 0;
+    int minimum = 0;
+
+    float average_10 = 0.0f;
+    float average_50 = 0.0f;
 
     if (!cities.empty())
     {
-        std::cout << "Wczytane niasta: " << cities.size() << std::endl;
-        
-        int distance = calculateDistance(cities[0], cities[1]);
-        
-        std::cout << "wspolrzedne 0: " << cities[0].x << ", " << cities[0].y << "\n";
-        std::cout << "wspolrzedne 1: " << cities[1].x << ", " << cities[1].y << "\n";
-
-        std::cout << "Odleglosc miedzy mistem 0 - 1: " << distance << "\n";
-
-        
-        for (int i=0; i<1000; i++)
+        for (int i=1; i<=1000; i++)
         {
             randomPermutation(cities);
-            sum += calculateTotalDistance(cities);
-        }
-        average = sum/1000.0f;
-        std::cout << "Srednia: " << average << "\n";
-    }
+            int distance1 = calculateTotalDistance(cities);
 
+            min_10 = std::min(min_10, distance1);
+            min_50 = std::min(min_50, distance1);
+            min = std::min(min, distance1);
+
+            if (i % 10 == 0)
+            {
+                sum_10 += min_10;
+                min_10 = hugeNumber;
+            }
+            if (i % 50 == 0)
+            {
+                sum_50 += min_50;
+                min_50 = hugeNumber;
+            }
+        }
+        average_10 = sum_10/100.0f;
+        average_50 = sum_50/20.0f;
+        minimum = min;
+
+        std::cout << "Srednia: " << average_10 << "\n";
+        std::cout << "Srednia: " << average_50 << "\n";
+        std::cout << "Minimum: " << minimum << "\n";
+    }
     return 0;
 }
