@@ -11,7 +11,7 @@
 std::mt19937 gen(time(nullptr));
 int hugeNumber = std::numeric_limits<int>::max();
 
-struct City //jkao wierzcholek
+struct City
 {
     int id;
     float x;
@@ -105,7 +105,6 @@ int main()
         "wi29.tsp", "dj38.tsp", "qa194.tsp", "uy734.tsp", "zi929.tsp"
     };
 
-    // Pętla przechodząca przez każde państwo
     for (size_t f = 0; f < filenames.size(); f++)
     {
         std::string currentFile = filenames[f];
