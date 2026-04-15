@@ -1,76 +1,20 @@
+#include "lab0.h"
+
 #include <iostream>
-#include <fstream>
-#include <vector>
-#include <string>
 #include <cmath>
 #include <algorithm>
+#include <limits>
 #include <random>
 #include <ctime>
-#include <limits>
 
 std::mt19937 gen(time(nullptr));
 int hugeNumber = std::numeric_limits<int>::max();
 
-struct City
+
+void randomPermutation(std::vector<City>& cities)
 {
-    int id;
-    float x;
-    float y;
-};
-
-std::vector<City> loadCitiesFile(const std::string& filename)
-{
-    std::vector<City> cities;
-    std::ifstream file(filename);
-    std::string word;
-
-    if (!file.is_open())
-    {
-        std::cerr << "error: " << filename << "\n";
-        return cities;
-    }
-
-    while (file >> word)
-    {
-        if (word == "NODE_COORD_SECTION")
-        {
-            break;
-        }
-    }
-
-    City city;
-    while (file >> city.id >> city.x >> city.y)
-    {
-        cities.push_back(city);
-    }
-
-    file.close();
-    return cities;
+    std::shuffle(cities.begin(), cities.end(), gen);
 }
-
-void saveRouteToFile(const std::vector<City>& route, const std::string& filename)
-{
-    std::ofstream outFile(filename);
-
-    if (!outFile.is_open())
-    {
-        std::cerr << "Error: " << filename << "\n";
-        return;
-    }
-
-    for (size_t i = 0; i < route.size(); i++)
-    {
-        outFile << route[i].x << " " << route[i].y << "\n";
-    }
-
-    if (!route.empty())
-    {
-        outFile << route[0].x << " " << route[0].y << "\n";
-    }
-
-    outFile.close();
-}
-
 
 int calculateDistance(const City& a, const City& b)
 {
@@ -78,11 +22,6 @@ int calculateDistance(const City& a, const City& b)
     float dy = a.y - b.y;
 
     return std::round(std::sqrt(dx * dx + dy * dy));
-}
-
-void randomPermutation(std::vector<City>& cities)
-{
-    std::shuffle(cities.begin(), cities.end(), gen);
 }
 
 int calculateTotalDistance(std::vector<City>& cities)
