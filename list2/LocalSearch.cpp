@@ -1,41 +1,72 @@
-#include "City.h"
+#include "LocalSearch.h"
 #include "FileLoadSave.h"
 #include "lab0.h"
 
 #include <iostream>
 #include <fstream>
-#include <vector>
 #include <string>
+#include <algorithm>
 
 // 1. Wybierz rozwiązanie początkowe (w dowolny sposób), które staje się rozwiązaniem aktualnym.
-// 2. Wyznacz wartość funkcji celu wszystkich sąsiadów rozwiązania aktualnego (dla otoczenia invert).
+// 2. Wyznacz wartość funkcji celu wszystkich sąsiadów rozwiązania aktualnego (dla otoczenia invert). --> invert to algorytm 2-opt
 // 3. Jako kandydata do poprawy wybierz najlepszego z ocenionych sąsiadów.
 // 4. Jeśli kandydat nie jest lepszy od aktualnego rozwiązania, to zakończ algorytm.
 // 5. Zastąp aktualne rozwiązanie kandydatem i przejdź do kroku 2.
 
-int main()
+//zwróci solution - wynik/trasę
+Result LocalSearch(std::vector<City>& cities, const std::vector<std::vector<int>>& distMatrix)
 {
-    std::vector<std::string> filenames = {
-        "mu1979.tsp", "ca4663.tsp", "tz6117.tsp", "eg7146.tsp", "ei8246.tsp"
-    };
+    int n = cities.size();
+    int improvementSteps = 0;
 
-    for (size_t f = 0; f < filenames.size(); f++)
+    randomPermutation(cities);
+
+    int currentDistance = 0;
+    for (int i = 0; i < n - 1; i++) 
     {
-        std::string currentFile = filenames[f];
-        std::vector<City> cities = loadCitiesFile(currentFile);
-        std::vector<City> bestRoute;
-
-        std::cout << "\n" << currentFile << "\n";
-        if (cities.empty()) std::cout << "Puste: " << currentFile << "\n";
-
-        randomPermutation(cities);  // 1. Wybierz rozwiązanie początkowe (w dowolny sposób), które staje się rozwiązaniem aktualnym.
-        
-
-        // randomPermutation(cities);
-        // int distance1 = calculateTotalDistance(cities);
-
-        // std::string outputFileName = "bestRoute_" + currentFile.substr(0, currentFile.find('.')) + ".txt";
-        // saveRouteToFile(bestRoute, outputFileName);
+        currentDistance += distMatrix[cities[i].id][cities[i+1].id];
     }
-    return 0;
+    currentDistance += distMatrix[cities[n-1].id][cities[0].id];
+
+    bool foundBetterSolution = true;
+
+    while (foundBetterSolution) 
+    {
+        foundBetterSolution = false;
+        int bestDelta = 0;
+        int best_i = 0;
+        int best_j = 0;
+
+        for(int i=0; i<n-1; i++) 
+        {
+            for(int j=i+1; j<n; j++) 
+            {    
+                if (i == 0 && j == n-1) continue;  // odwrócona cała tablica
+                
+                int prev_i = (i == 0) ? n-1 : i-1; // zachowanie cykliczności
+                int next_j = (j == n-1) ? 0 : j+1;
+
+                //std::reverse(citiesCopy.begin() + i, citiesCopy.begin() + j + 1);
+                int currentEdges = distMatrix[cities[prev_i].id][cities[i].id] + distMatrix[cities[j].id][cities[next_j].id];
+                int newEdges = distMatrix[cities[prev_i].id][cities[j].id] + distMatrix[cities[i].id][cities[next_j].id];
+
+                int delta_candidate = newEdges - currentEdges;
+
+                if(delta_candidate < bestDelta)
+                {
+                    bestDelta = delta_candidate;
+                    best_i = i;
+                    best_j = j;
+                }
+            }
+        }
+        if(bestDelta < 0)
+        {
+            std::reverse(cities.begin() + best_i, cities.begin() + best_j + 1);
+            currentDistance += bestDelta;
+            improvementSteps++;
+            foundBetterSolution = true;
+        }
+    }
+    return {cities ,improvementSteps, currentDistance};
 }

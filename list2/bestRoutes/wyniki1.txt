@@ -1,0 +1,24 @@
+Wyniki dla ei8246.tsp:
+Srednia wartosc: 230530
+Srednie kroki: 12014.8
+Najlepsze rozwiazanie: 229162
+
+Wyniki dla: mu1979.tsp
+Srednia wartosc: 94254.7
+Srednie kroki: 2784.3
+Najlepsze rozwiazanie: 92604
+
+Wyniki dla: ca4663.tsp
+Srednia wartosc: 1.43277e+006
+Srednie kroki: 6776.9
+Najlepsze rozwiazanie: 1413656
+
+Wyniki dla: tz6117.tsp
+Srednia wartosc: 438398
+Srednie kroki: 8868.1
+Najlepsze rozwiazanie: 434659
+
+Wyniki dla: eg7146.tsp
+Srednia wartosc: 189723
+Srednie kroki: 10259.2
+Najlepsze rozwiazanie: 187622
