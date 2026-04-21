@@ -1,0 +1,25 @@
+Wyniki dla: wi29.tsp
+Srednia wartosc: 28199.6
+Srednie kroki: 24.3448
+Najlepsze rozwiazanie: 27603
+
+Wyniki dla: dj38.tsp
+Srednia wartosc: 6901.32
+Srednie kroki: 35.2895
+Najlepsze rozwiazanie: 6656
+
+Wyniki dla: qa194.tsp
+Srednia wartosc: 10203
+Srednie kroki: 212.392
+Najlepsze rozwiazanie: 9572
+
+Wyniki dla: uy734.tsp
+Srednia wartosc: 86927.5
+Srednie kroki: 923.328
+Najlepsze rozwiazanie: 84541
+
+Wyniki dla: zi929.tsp
+Srednia wartosc: 104183
+Srednie kroki: 1174.58
+Najlepsze rozwiazanie: 100475
+

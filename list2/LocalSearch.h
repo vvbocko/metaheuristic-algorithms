@@ -2,6 +2,7 @@
 
 #include "City.h"
 #include <vector>
+#include <functional>
 
 struct Result
 {
@@ -10,8 +11,11 @@ struct Result
     int totalDistance;
 };
 
-Result LocalSearch(std::vector<City>& cities, const std::vector<std::vector<int>>& distMatrix);
+using LocalSearch = std::function<Result(std::vector<City>&, const std::vector<std::vector<int>>&)>;
 
+Result LocalSearch_Invert(std::vector<City>& cities, const std::vector<std::vector<int>>& distMatrix);
+Result LocalSearch_RandomInvert(std::vector<City>& cities, const std::vector<std::vector<int>>& distMatrix);
+Result LocalSearch_Swap(std::vector<City>& cities, const std::vector<std::vector<int>>& distMatrix);
 
 
 

@@ -1,0 +1,30 @@
+(10) Wyniki dla: mu1979.tsp
+Srednia wartosc: 908168
+Srednie kroki: 6007.6
+Najlepsze rozwiazanie: 856579
+
+(3) Wyniki dla: ca4663.tsp
+Srednia wartosc: 1.35681e+007
+Srednie kroki: 29076
+Najlepsze rozwiazanie: 12893304
+
+(3) Wyniki dla: tz6117.tsp
+Srednia wartosc: 3.74842e+006
+Srednie kroki: 32312
+Najlepsze rozwiazanie: 3563882
+
+(10) Wyniki dla: ca4663.tsp
+Srednia wartosc: 1.34547e+007
+Srednie kroki: 29805.5
+Najlepsze rozwiazanie: 12816813
+
+(3) Wyniki dla: ei8246.tsp
+Srednia wartosc: 1.69851e+006
+Srednie kroki: 47494
+Najlepsze rozwiazanie: 1653707
+
+(3) Wyniki dla: eg7146.tsp
+Srednia wartosc: 1.8972e+006
+Srednie kroki: 36368
+Najlepsze rozwiazanie: 1818368
+
