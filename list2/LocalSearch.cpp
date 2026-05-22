@@ -1,6 +1,6 @@
 #include "LocalSearch.h"
-#include "FileLoadSave.h"
-#include "lab0.h"
+#include "../list0/FileLoadSave.h"
+#include "../list0/lab0.h"
 
 #include <iostream>
 #include <algorithm>

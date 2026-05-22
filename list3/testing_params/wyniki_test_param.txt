@@ -1,0 +1,30 @@
+(n1 90)
+Wyniki dla: qa194.tsp
+Srednia wartosc: 13017.8
+Srednie kroki: 6282.44
+Najlepsze rozwiazanie: 12034
+
+(n10 97)
+Wyniki dla: qa194.tsp
+Srednia wartosc: 9946.12
+Srednie kroki: 193300
+Najlepsze rozwiazanie: 9548
+
+(n10 99)
+Wyniki dla: qa194.tsp
+Srednia wartosc: 53733.3
+Srednie kroki: 308774
+Najlepsze rozwiazanie: 9499
+
+(n20 90)
+Wyniki dla: qa194.tsp
+Srednia wartosc: 10060.8
+Srednie kroki: 113947
+Najlepsze rozwiazanie: 9581
+
+(n20 99)
+Wyniki dla: qa194.tsp
+Srednia wartosc: 53131.7
+Srednie kroki: 625769
+Najlepsze rozwiazanie: 9415
+

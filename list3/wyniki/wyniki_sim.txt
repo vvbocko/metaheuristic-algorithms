@@ -1,0 +1,53 @@
+Wyniki dla: wi29.tsp
+Czas: 0.405599
+Srednia wartosc: 43157.4
+Srednie kroki: 33475.3
+Najlepsze rozwiazanie: 27603
+
+Wyniki dla: dj38.tsp
+Srednia wartosc: 11401.2
+Srednie kroki: 44511.9
+Najlepsze rozwiazanie: 6656
+
+Wyniki dla: qa194.tsp
+Srednia wartosc: 15711.1
+Srednie kroki: 275777
+Najlepsze rozwiazanie: 9458
+
+Wyniki dla: uy734.tsp
+Srednia wartosc: 87321.6
+Srednie kroki: 1.06666e+006
+Najlepsze rozwiazanie: 85750
+
+Wyniki dla: zi929.tsp
+Srednia wartosc: 105332
+Srednie kroki: 1.43107e+006
+Najlepsze rozwiazanie: 103104
+
+Wyniki dla: mu1979.tsp
+Srednia wartosc: 97753.9
+Srednie kroki: 2.93088e+006
+Najlepsze rozwiazanie: 95104
+
+Wyniki dla: ca4663.tsp
+Srednia wartosc: 1.57416e+006
+Srednie kroki: 7.35778e+006
+Najlepsze rozwiazanie: 1542472
+
+Wyniki dla: tz6117.tsp
+Czas: 6000.95
+Srednia wartosc: 517205
+Srednie kroki: 9.03685e+006
+Najlepsze rozwiazanie: 510060
+
+Wyniki dla: eg7146.tsp
+Czas: 3925.87
+Srednia wartosc: 232964
+Srednie kroki: 1.09545e+007
+Najlepsze rozwiazanie: 225980
+
+Wyniki dla: ei8246.tsp
+Srednia wartosc: 293135
+Srednie kroki: 1.2e+007
+Najlepsze rozwiazanie: 289951
+
