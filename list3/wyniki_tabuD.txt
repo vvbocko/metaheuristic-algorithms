@@ -1,0 +1,30 @@
+Wyniki dla: zi929.tsp
+Czas: 1802.38
+Srednia wartosc: 104041
+Srednie kroki: 1195.69
+Najlepsze rozwiazanie: 101380
+
+Wyniki dla: mu1979.tsp
+Czas: 434.182
+Srednia wartosc: 99599.6
+Srednie kroki: 3715.98
+Najlepsze rozwiazanie: 97536
+
+Wyniki dla: ca4663.tsp
+Czas: 4675.14
+Srednia wartosc: 1.53174e+006
+Srednie kroki: 8983.23
+Najlepsze rozwiazanie: 1499356
+
+Wyniki dla: tz6117.tsp
+Czas: 6999.77
+Srednia wartosc: 470444
+Srednie kroki: 11708.9
+Najlepsze rozwiazanie: 466080
+
+Wyniki dla: eg7146.tsp
+Czas: 7381.96
+Srednia wartosc: 201430
+Srednie kroki: 13614.3
+Najlepsze rozwiazanie: 197322
+

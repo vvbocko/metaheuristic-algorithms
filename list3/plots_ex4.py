@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import os
 
-cities = [ "wi29", "mu1979", "ca4663", "tz6117", "eg7146", "zi929", "dj38", "qa194", "uy734", "ei8246"] 
+cities = ["ca4663"] 
 # Kiedy policzysz duże pliki, podmienisz to na: ["wi29" "mu1979", "ca4663", "tz6117", "eg7146", "zi929", "ei8246"]
 
 def read_route(filename):
@@ -23,8 +23,8 @@ for city in cities:
 
     tasks = [
         (f'bestRoute_{city}_zad1.txt', 'Local Search', axs[0]),
-        (f'bestRoute_{city}_tabu.txt', 'Tabu Search', axs[1]),
-        (f'bestRoute_{city}_sim.txt', 'Symulowane Wyżarzanie', axs[2])
+        (f'bestRoute_{city}_tabuD.txt', 'Tabu Search', axs[1]),
+        (f'bestRoute_{city}_sim3.txt', 'Symulowane Wyżarzanie', axs[2])
     ]
 
     for filepath, title, ax in tasks:

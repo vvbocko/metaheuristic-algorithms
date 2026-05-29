@@ -13,7 +13,7 @@ Result TabuSearch(std::vector<City>& cities, const std::vector<std::vector<int>>
     int improvementSteps = 0;
     randomPermutation(cities);
 
-    std::vector<std::vector<int>> tabuList(n, std::vector<int>(n, 0));
+    std::vector<int> tabuList(n * n, 0);
     int cooldown = tabu_length;
 
     long long currentDistance = 0;
@@ -26,12 +26,8 @@ Result TabuSearch(std::vector<City>& cities, const std::vector<std::vector<int>>
     long long globalBestDistance = currentDistance;
     std::vector<City> globalBestRoute = cities;
 
-    // int maxIterations = (n < 1000) ? std::max(800, 2*n) : n; 
-    // int maxStepsWithoutImprovement = (n < 1000) ? std::max(100, n/3) : std::max(50, n/10); 
-    // int idleSteps = 0;
-
     int maxIterations = (n < 1000) ? std::max(800, 2*n) : 2 * n; 
-    int maxStepsWithoutImprovement = (n < 1000) ? std::max(100, n/3) : n;
+    int maxStepsWithoutImprovement = (n < 1000) ? std::max(100, n/3) : 250;
     int idleSteps = 0;
 
     std::mt19937 rng(12345); 
@@ -59,7 +55,9 @@ Result TabuSearch(std::vector<City>& cities, const std::vector<std::vector<int>>
                     long long newEdges     = distMatrix[cities[prev_i].id][cities[j].id] + distMatrix[cities[i].id][cities[next_j].id];
                     long long delta_candidate = newEdges - currentEdges;
 
-                    bool isTabu = (tabuList[cities[i].id][cities[j].id] > iter) || (tabuList[cities[j].id][cities[i].id] > iter);
+                    int id_i = cities[i].id;
+                    int id_j = cities[j].id;
+                    bool isTabu = (tabuList[id_i * n + id_j] > iter) || (tabuList[id_j * n + id_i] > iter);
                     bool isBreakingRecord = (currentDistance + delta_candidate < globalBestDistance);
 
                     if (isTabu && !isBreakingRecord) continue;
@@ -95,7 +93,9 @@ Result TabuSearch(std::vector<City>& cities, const std::vector<std::vector<int>>
                 long long newEdges     = distMatrix[cities[prev_i].id][cities[j].id] + distMatrix[cities[i].id][cities[next_j].id];
                 long long delta_candidate = newEdges - currentEdges;
 
-                bool isTabu = (tabuList[cities[i].id][cities[j].id] > iter) || (tabuList[cities[j].id][cities[i].id] > iter);
+                int id_i = cities[i].id;
+                int id_j = cities[j].id;
+                bool isTabu = (tabuList[id_i * n + id_j] > iter) || (tabuList[id_j * n + id_i] > iter);
                 bool isBreakingRecord = (currentDistance + delta_candidate < globalBestDistance);
 
                 if (isTabu && !isBreakingRecord) continue;
@@ -112,8 +112,10 @@ Result TabuSearch(std::vector<City>& cities, const std::vector<std::vector<int>>
         
         if (!foundMove) break; 
 
-        tabuList[cities[best_i].id][cities[best_j].id] = iter + cooldown;
-        tabuList[cities[best_j].id][cities[best_i].id] = iter + cooldown;
+        int best_id_i = cities[best_i].id;
+        int best_id_j = cities[best_j].id;
+        tabuList[best_id_i * n + best_id_j] = iter + cooldown;
+        tabuList[best_id_j * n + best_id_i] = iter + cooldown;
 
         std::reverse(cities.begin() + best_i, cities.begin() + best_j + 1);
         currentDistance += bestDelta;

@@ -14,10 +14,10 @@
 
 int main()
 {
-    std::ofstream resultsFile("wyniki_sim2.txt", std::ios::app); 
-    std::vector<std::string> filenames =  {"wi29.tsp" ,  "dj38.tsp", "qa194.tsp", "uy734.tsp", "zi929.tsp", "mu1979.tsp", "ca4663.tsp", "tz6117.tsp", "eg7146.tsp", "ei8246.tsp"}; //  }; ////// "wi29.tsp", "dj38.tsp", "qa194.tsp", "uy734.tsp", "zi929.tsp" "mu1979.tsp", "ca4663.tsp", "tz6117.tsp", "ei8246.tsp"
-    LocalSearch activeAlgorithm = Simulated_Annealing; //Simulated_Annealing, TabuSearch
-    std::string taskSuffix = "_sim2";
+    std::ofstream resultsFile("wyniki_tabuD.txt", std::ios::app); 
+    std::vector<std::string> filenames = { "eg7146.tsp"};// "tz6117.tsp", "eg7146.tsp", "ei8246.tsp"}; //"wi29.tsp" ,  "dj38.tsp", "qa194.tsp", "uy734.tsp", "zi929.tsp", "mu1979.tsp", "ca4663.tsp", "tz6117.tsp", "eg7146.tsp", "ei8246.tsp"  }; ////// "wi29.tsp", "dj38.tsp", "qa194.tsp", "uy734.tsp", "zi929.tsp" "mu1979.tsp", "ca4663.tsp", "tz6117.tsp", "ei8246.tsp"
+    //LocalSearch activeAlgorithm = Simulated_Annealing; //Simulated_Annealing, TabuSearch
+    std::string taskSuffix = "_tabuD";
 
     std::unordered_map<std::string, int> improvement_num =
     {
@@ -73,8 +73,8 @@ int main()
         {
             std::vector<City> Copy = originalCities;
             
-            Result result = activeAlgorithm(Copy, distMatrix); //
-            //Result result = TabuSearch(Copy, distMatrix, tabu_length); //
+            //Result result = activeAlgorithm(Copy, distMatrix); //
+            Result result = TabuSearch(Copy, distMatrix, tabu_length); //
 
             distance_sum += result.totalDistance;
             steps_sum += result.improvementSteps;
