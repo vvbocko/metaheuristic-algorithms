@@ -1,6 +1,6 @@
 #include "LocalSearch.h"
 #include "../list0/FileLoadSave.h"
-#include "../list0/lab0.h"
+#include "../list0/CalculationTools.h"
 
 #include <limits>
 #include <vector>
@@ -15,7 +15,7 @@
 int main()
 {
     std::ofstream resultsFile("wyniki_tabuD.txt", std::ios::app); 
-    std::vector<std::string> filenames = { "eg7146.tsp"};// "tz6117.tsp", "eg7146.tsp", "ei8246.tsp"}; //"wi29.tsp" ,  "dj38.tsp", "qa194.tsp", "uy734.tsp", "zi929.tsp", "mu1979.tsp", "ca4663.tsp", "tz6117.tsp", "eg7146.tsp", "ei8246.tsp"  }; ////// "wi29.tsp", "dj38.tsp", "qa194.tsp", "uy734.tsp", "zi929.tsp" "mu1979.tsp", "ca4663.tsp", "tz6117.tsp", "ei8246.tsp"
+    std::vector<std::string> filenames = { "eg7146.tsp"}; // "wi29.tsp", "dj38.tsp", "qa194.tsp", "uy734.tsp", "zi929.tsp" "mu1979.tsp", "ca4663.tsp", "tz6117.tsp", "eg7146.tsp", "ei8246.tsp"
     //LocalSearch activeAlgorithm = Simulated_Annealing; //Simulated_Annealing, TabuSearch
     std::string taskSuffix = "_tabuD";
 
